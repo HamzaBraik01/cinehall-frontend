@@ -1,0 +1,367 @@
+/* Payment Page Styling */
+.payment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .payment-container .booking-steps {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+  }
+  
+  .payment-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  .payment-methods {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .payment-methods h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .payment-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--lighter-gray);
+    margin-bottom: var(--spacing-lg);
+    overflow-x: auto;
+  }
+  
+  .payment-tab {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    font-weight: 600;
+    color: var(--medium-gray);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .payment-tab i {
+    font-size: 1.25rem;
+  }
+  
+  .payment-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+  }
+  
+  .payment-tab:hover {
+    color: var(--primary-color);
+  }
+  
+  .payment-form-container {
+    display: none;
+  }
+  
+  .payment-form-container.active {
+    display: block;
+  }
+  
+  .card-animation {
+    perspective: 1000px;
+    max-width: 400px;
+    margin: 0 auto var(--spacing-xl);
+  }
+  
+  .card-visual {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card-visual.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .card-front {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-back {
+    background-color: var(--off-white);
+    transform: rotateY(180deg);
+  }
+  
+  .card-logo {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .card-chip {
+    width: 50px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .card-number {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+    font-family: monospace;
+  }
+  
+  .card-details {
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+  }
+  
+  .card-holder, .card-expiry {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-details label {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  
+  .card-strip {
+    width: 100%;
+    height: 40px;
+    background-color: var(--dark);
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .card-signature {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+  }
+  
+  .signature-strip {
+    flex: 1;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .cvc {
+    background-color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-family: monospace;
+    font-weight: 600;
+  }
+  
+  .payment-summary {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .payment-summary h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .summary-movie {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--lighter-gray);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .summary-movie-poster {
+    width: 80px;
+    height: 120px;
+    border-radius: var(--border-radius-md);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  
+  .summary-movie-info {
+    flex: 1;
+  }
+  
+  .summary-movie-info h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+  }
+  
+  .summary-movie-info p {
+    margin-bottom: var(--spacing-xs);
+    color: var(--medium-gray);
+    font-size: 0.875rem;
+  }
+  
+  .summary-seats {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .summary-seats h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+  }
+  
+  .summary-seats-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: var(--spacing-sm);
+  }
+  
+  .summary-seat {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .summary-prices {
+    background-color: var(--lighter-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .price-divider {
+    height: 1px;
+    background-color: var(--light-gray);
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .payment-security {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    color: var(--medium-gray);
+    font-size: 0.875rem;
+  }
+  
+  .payment-security p {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .security-logos {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    font-size: 1.5rem;
+  }
+  
+  .btn-paypal {
+    background-color: #0070ba;
+    color: var(--white);
+    width: 100%;
+  }
+  
+  .btn-paypal:hover {
+    background-color: #005ea6;
+  }
+  
+  .btn-applepay {
+    background-color: var(--dark);
+    color: var(--white);
+    width: 100%;
+  }
+  
+  .btn-applepay:hover {
+    background-color: #000;
+  }
+  
+  .alternative-payment {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+  
+  .paypal-logo, .applepay-logo {
+    margin-bottom: var(--spacing-md);
+    color: #0070ba;
+  }
+  
+  .applepay-logo {
+    color: var(--dark);
+  }
+  
+  /* Processing Payment Modal */
+  .processing-animation {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+  
+  .processing-animation .spinner {
+    margin: 0 auto var(--spacing-md);
+  }
+  
+  .processing-animation p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .processing-animation span {
+    color: var(--medium-gray);
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 992px) {
+    .payment-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+    
+    .card-animation {
+      max-width: 350px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .payment-tabs {
+      justify-content: space-between;
+    }
+    
+    .payment-tab {
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .card-visual {
+      height: 180px;
+    }
+    
+    .card-number {
+      font-size: 1.25rem;
+    }
+  }

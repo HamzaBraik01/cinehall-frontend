@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de sièges - CinéHall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/seats.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="mini-header">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.svg" alt="CinéHall Logo">
+                <span>CinéHall</span>
+            </a>
+            <div class="reservation-timer hidden" id="reservation-timer">
+                <i class="fas fa-clock"></i>
+                <span>Réservation expire dans: <span id="countdown">15:00</span></span>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fas fa-chevron-right"></i>
+                <a id="movie-link" href="#">Film</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Sélection des sièges</span>
+            </div>
+            
+            <div class="booking-container">
+                <div class="booking-info">
+                    <div class="movie-info">
+                        <div class="movie-poster" id="movie-poster"></div>
+                        <div>
+                            <h1 id="movie-title">Titre du film</h1>
+                            <div class="session-info">
+                                <p><i class="far fa-calendar-alt"></i> <span id="session-date">Date</span></p>
+                                <p><i class="far fa-clock"></i> <span id="session-time">Heure</span></p>
+                                <p><i class="fas fa-film"></i> <span id="session-type">Type</span></p>
+                                <p><i class="fas fa-language"></i> <span id="session-language">Langue</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-steps">
+                        <div class="step active">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Sélection des sièges</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Paiement</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="seats-selection-container">
+                    <div class="seats-legend">
+                        <div class="legend-item">
+                            <div class="seat-icon available"></div>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat-icon selected"></div>
+                            <span>Sélectionné</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat-icon occupied"></div>
+                            <span>Occupé</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat-icon couple"></div>
+                            <span>Siège couple</span>
+                        </div>
+                    </div>
+                    
+                    <div class="screen-container">
+                        <div class="screen">Écran</div>
+                    </div>
+                    
+                    <div class="seats-container" id="seats-map">
+                        <div class="loading-animation">
+                            <div class="spinner"></div>
+                            <p>Chargement du plan de salle...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-summary">
+                    <h2>Récapitulatif</h2>
+                    <div class="selected-seats">
+                        <h3>Sièges sélectionnés</h3>
+                        <div id="selected-seats-list">
+                            <p class="empty-selection">Aucun siège sélectionné</p>
+                        </div>
+                    </div>
+                    
+                    <div class="price-breakdown">
+                        <div class="price-item">
+                            <span>Prix unitaire</span>
+                            <span id="unit-price">0.00 €</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Nombre de sièges</span>
+                            <span id="seat-count">0</span>
+                        </div>
+                        <div class="price-item total">
+                            <span>Total</span>
+                            <span id="total-price">0.00 €</span>
+                        </div>
+                    </div>
+                    
+                    <button id="proceed-payment-btn" class="btn btn-primary btn-block" disabled>
+                        Procéder au paiement
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Expiration Warning Modal -->
+        <div class="modal" id="expiration-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Attention</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="warning-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Votre réservation expirera dans <span id="warning-time">5</span> minutes. Veuillez procéder au paiement pour compléter votre réservation.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline close-modal">Continuer la sélection</button>
+                    <button class="btn btn-primary" id="warning-payment-btn">Procéder au paiement</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="mini-footer">
+            <p>&copy; 2025 CinéHall. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/seats.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur - CinéHall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.svg" alt="CinéHall Logo">
+                    <span>CinéHall</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Films</a></li>
+                    <li><a href="#" class="nav-link" data-section="cinema">Cinémas</a></li>
+                    <li><a href="#" class="nav-link" data-section="events">Événements</a></li>
+                    <li><a href="#" class="nav-link" data-section="offers">Offres</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="auth-actions">
+                    <div class="user-actions">
+                        <button class="user-menu-toggle">
+                            <div class="user-avatar">
+                                <span class="user-initial">U</span>
+                            </div>
+                            <span class="username" id="header-username">Utilisateur</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown hidden">
+                            <a href="profile.html" class="active"><i class="fas fa-user"></i> Mon Profil</a>
+                            <a href="profile.html#reservations"><i class="fas fa-ticket-alt"></i> Mes Réservations</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Profil Utilisateur</span>
+            </div>
+            
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="user-profile-header">
+                        <div class="user-avatar-large">
+                            <span class="user-initial" id="profile-initial">U</span>
+                            <button class="change-avatar-btn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h2 id="profile-name">Nom Utilisateur</h2>
+                        <p id="profile-email">utilisateur@example.com</p>
+                        <p class="member-since">Membre depuis <span id="member-since">Janvier 2025</span></p>
+                    </div>
+                    
+                    <nav class="profile-nav">
+                        <a href="#info" class="profile-nav-item active" data-tab="info">
+                            <i class="fas fa-user"></i> Informations personnelles
+                        </a>
+                        <a href="#reservations" class="profile-nav-item" data-tab="reservations">
+                            <i class="fas fa-ticket-alt"></i> Mes réservations
+                        </a>
+                        <a href="#preferences" class="profile-nav-item" data-tab="preferences">
+                            <i class="fas fa-sliders-h"></i> Préférences
+                        </a>
+                        <a href="#payment-methods" class="profile-nav-item" data-tab="payment-methods">
+                            <i class="fas fa-credit-card"></i> Méthodes de paiement
+                        </a>
+                        <a href="#security" class="profile-nav-item" data-tab="security">
+                            <i class="fas fa-lock"></i> Sécurité
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-actions">
+                        <button class="btn btn-outline btn-block" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i> Déconnexion
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="tab-content active" id="info-tab">
+                        <div class="section-header">
+                            <h2>Informations personnelles</h2>
+                            <button class="btn btn-outline edit-btn" id="edit-info-btn">
+                                <i class="fas fa-pencil-alt"></i> Modifier
+                            </button>
+                        </div>
+                        
+                        <div class="profile-form-container">
+                            <form id="profile-info-form" class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-firstname">Prénom</label>
+                                        <input type="text" id="profile-firstname" name="firstname" placeholder="Prénom" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-lastname">Nom</label>
+                                        <input type="text" id="profile-lastname" name="lastname" placeholder="Nom" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email-input">Email</label>
+                                    <input type="email" id="profile-email-input" name="email" placeholder="votre@email.com" disabled>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-phone">Téléphone</label>
+                                        <input type="tel" id="profile-phone" name="phone" placeholder="Numéro de téléphone" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-birthdate">Date de naissance</label>
+                                        <input type="date" id="profile-birthdate" name="birthdate" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-address">Adresse</label>
+                                    <input type="text" id="profile-address" name="address" placeholder="Adresse" disabled>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-city">Ville</label>
+                                        <input type="text" id="profile-city" name="city" placeholder="Ville" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-postal">Code postal</label>
+                                        <input type="text" id="profile-postal" name="postal_code" placeholder="Code postal" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-country">Pays</label>
+                                        <input type="text" id="profile-country" name="country" placeholder="Pays" disabled>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions hidden">
+                                    <button type="button" class="btn btn-outline" id="cancel-edit-btn">Annuler</button>
+                                    <button type="submit" class="btn btn-primary" id="save-profile-btn">Enregistrer les modifications</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="reservations-tab">
+                        <div class="section-header">
+                            <h2>Mes réservations</h2>
+                            <div class="filter-dropdown">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-filter"></i> Filtrer
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="filter-dropdown-content hidden">
+                                    <label class="filter-option">
+                                        <input type="radio" name="reservation-filter" value="all" checked> Toutes
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="radio" name="reservation-filter" value="upcoming"> À venir
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="radio" name="reservation-filter" value="past"> Passées
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reservations-container" id="reservations-container">
+                            <div class="loading-animation">
+                                <div class="spinner"></div>
+                                <p>Chargement des réservations...</p>
+                            </div>
+                            <div class="no-reservations hidden">
+                                <i class="fas fa-ticket-alt"></i>
+                                <p>Vous n'avez pas encore de réservations.</p>
+                                <a href="index.html" class="btn btn-primary">Explorer les films</a>
+                            </div>
+                            <div class="reservations-list hidden" id="reservations-list">
+                                <!-- Reservations will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="preferences-tab">
+                        <div class="section-header">
+                            <h2>Préférences</h2>
+                        </div>
+                        <div class="preferences-container">
+                            <div class="preferences-section">
+                                <h3>Préférences de communication</h3>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Notifications par email</h4>
+                                        <p>Recevez des emails concernant vos réservations, promotions et actualités.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="email-notifications" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Notifications SMS</h4>
+                                        <p>Recevez des SMS pour les rappels de séances et les offres spéciales.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="sms-notifications">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Newsletter</h4>
+                                        <p>Abonnez-vous à notre newsletter mensuelle pour découvrir les nouveautés.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="newsletter" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="preferences-section">
+                                <h3>Préférences cinématographiques</h3>
+                                <div class="preference-genres">
+                                    <h4>Genres préférés</h4>
+                                    <p>Sélectionnez vos genres de films préférés pour des recommandations personnalisées.</p>
+                                    <div class="genre-tags">
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="action"> Action
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="comedy"> Comédie
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="drama"> Drame
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="scifi"> Science Fiction
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="horror"> Horreur
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="romance"> Romance
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="animation"> Animation
+                                        </label>
+                                        <label class="genre-tag">
+                                            <input type="checkbox" name="genre" value="documentary"> Documentaire
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Version préférée</h4>
+                                        <p>Choisissez votre format de visionnage préféré</p>
+                                    </div>
+                                    <div class="radio-options">
+                                        <label class="radio-option">
+                                            <input type="radio" name="language-preference" value="vo" checked> VO
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="language-preference" value="vf"> VF
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="language-preference" value="both"> Les deux
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="preferences-actions">
+                                <button class="btn btn-primary" id="save-preferences-btn">Enregistrer les préférences</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="payment-methods-tab">
+                        <div class="section-header">
+                            <h2>Méthodes de paiement</h2>
+                            <button class="btn btn-outline" id="add-payment-method-btn">
+                                <i class="fas fa-plus"></i> Ajouter une carte
+                            </button>
+                        </div>
+                        
+                        <div class="payment-methods-container">
+                            <div class="saved-cards" id="saved-cards">
+                                <div class="saved-card">
+                                    <div class="card-info">
+                                        <div class="card-type-icon">
+                                            <i class="fab fa-cc-visa"></i>
+                                        </div>
+                                        <div class="card-details">
+                                            <div class="card-name">Visa se terminant par 4242</div>
+                                            <div class="card-expiry">Expire le 12/2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button class="btn btn-icon-small btn-edit-card" data-card="1">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="btn btn-icon-small btn-delete-card" data-card="1">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="saved-card">
+                                    <div class="card-info">
+                                        <div class="card-type-icon">
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </div>
+                                        <div class="card-details">
+                                            <div class="card-name">Mastercard se terminant par 8888</div>
+                                            <div class="card-expiry">Expire le 06/2026</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button class="btn btn-icon-small btn-edit-card" data-card="2">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="btn btn-icon-small btn-delete-card" data-card="2">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="no-payment-methods hidden">
+                                <i class="fas fa-credit-card"></i>
+                                <p>Vous n'avez pas encore de méthode de paiement enregistrée.</p>
+                                <button class="btn btn-primary" id="add-first-card-btn">Ajouter une carte</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="security-tab">
+                        <div class="section-header">
+                            <h2>Sécurité</h2>
+                        </div>
+                        
+                        <div class="security-container">
+                            <div class="security-section">
+                                <h3>Changement de mot de passe</h3>
+                                <form id="password-change-form" class="security-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Mot de passe actuel</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="password" id="current-password" name="current_password" required>
+                                            <i class="far fa-eye toggle-password"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">Nouveau mot de passe</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="password" id="new-password" name="new_password" required>
+                                            <i class="far fa-eye toggle-password"></i>
+                                        </div>
+                                        <div class="password-strength">
+                                            <div class="strength-bar">
+                                                <div class="strength-fill" style="width: 0%"></div>
+                                            </div>
+                                            <span class="strength-text">Sécurité: Faible</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="password" id="confirm-password" name="confirm_password" required>
+                                            <i class="far fa-eye toggle-password"></i>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Changer le mot de passe</button>
+                                </form>
+                            </div>
+                            
+                            <div class="security-section">
+                                <h3>Authentification à deux facteurs</h3>
+                                <div class="two-factor-info">
+                                    <p>Ajoutez une couche supplémentaire de sécurité à votre compte en activant l'authentification à deux facteurs.</p>
+                                    <div class="two-factor-status">
+                                        <span class="status-label">Statut:</span>
+                                        <span class="status-value disabled">Désactivé</span>
+                                    </div>
+                                    <button class="btn btn-outline" id="enable-2fa-btn">Activer l'authentification à deux facteurs</button>
+                                </div>
+                            </div>
+                            
+                            <div class="security-section danger-zone">
+                                <h3>Zone dangereuse</h3>
+                                <div class="account-deletion">
+                                    <h4>Supprimer votre compte</h4>
+                                    <p>La suppression de votre compte est irréversible et entraînera la perte de toutes vos données et historiques de réservation.</p>
+                                    <button class="btn btn-danger" id="delete-account-btn">Supprimer mon compte</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Add Payment Method Modal -->
+        <div class="modal" id="add-card-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Ajouter une carte de paiement</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-card-form" class="payment-form">
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-credit-card"></i>
+                                <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                <div class="card-type" id="card-type"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Titulaire de la carte</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="card-name" name="card_name" placeholder="Nom complet" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Date d'expiration</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/AA" maxlength="5" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvc">CVC/CVV</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="text" id="card-cvc" name="card_cvc" placeholder="123" maxlength="3" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="default-card" name="default_card">
+                                <label for="default-card">Définir comme carte par défaut</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline close-modal">Annuler</button>
+                    <button class="btn btn-primary" id="confirm-add-card">Ajouter la carte</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Account Confirmation Modal -->
+        <div class="modal" id="delete-account-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Supprimer votre compte</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="warning-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Êtes-vous sûr de vouloir supprimer votre compte? Cette action est irréversible et entraînera la perte de toutes vos données et historiques de réservation.</p>
+                    </div>
+                    <div class="confirmation-form">
+                        <div class="form-group">
+                            <label for="delete-confirm">Pour confirmer, tapez "supprimer mon compte"</label>
+                            <input type="text" id="delete-confirm" placeholder="supprimer mon compte">
+                        </div>
+                        <div class="form-group">
+                            <label for="delete-password">Votre mot de passe actuel</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="delete-password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline close-modal">Annuler</button>
+                    <button class="btn btn-danger" id="confirm-delete-account" disabled>Supprimer définitivement</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CinéHall</h4>
+                    <p>Votre cinéma en ligne pour une expérience exceptionnelle.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Films</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Nous suivre</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CinéHall. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/profile.js"></script>
+</body>
+</html>

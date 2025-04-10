@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Billet - CinéHall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/ticket.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.svg" alt="CinéHall Logo">
+                    <span>CinéHall</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Films</a></li>
+                    <li><a href="#" class="nav-link" data-section="cinema">Cinémas</a></li>
+                    <li><a href="#" class="nav-link" data-section="events">Événements</a></li>
+                    <li><a href="#" class="nav-link" data-section="offers">Offres</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-right">
+                <div class="auth-actions">
+                    <div class="user-actions">
+                        <button class="user-menu-toggle">
+                            <div class="user-avatar">
+                                <span class="user-initial">U</span>
+                            </div>
+                            <span class="username">Utilisateur</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown hidden">
+                            <a href="profile.html"><i class="fas fa-user"></i> Mon Profil</a>
+                            <a href="profile.html#reservations"><i class="fas fa-ticket-alt"></i> Mes Réservations</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="confirmation-banner">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="confirmation-message">
+                    <h1>Réservation confirmée</h1>
+                    <p>Votre paiement a été traité avec succès</p>
+                </div>
+            </div>
+            
+            <div class="ticket-container">
+                <div class="booking-steps">
+                    <div class="step completed">
+                        <div class="step-number"><i class="fas fa-check"></i></div>
+                        <div class="step-label">Sélection des sièges</div>
+                    </div>
+                    <div class="step completed">
+                        <div class="step-number"><i class="fas fa-check"></i></div>
+                        <div class="step-label">Paiement</div>
+                    </div>
+                    <div class="step completed">
+                        <div class="step-number"><i class="fas fa-check"></i></div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+                
+                <div class="tickets-list" id="tickets-container">
+                    <!-- Tickets will be generated here -->
+                    <div class="loading-animation">
+                        <div class="spinner"></div>
+                        <p>Génération de vos billets...</p>
+                    </div>
+                </div>
+                
+                <div class="ticket-actions">
+                    <button class="btn btn-outline" id="download-all-btn">
+                        <i class="fas fa-download"></i> Télécharger tous les billets (PDF)
+                    </button>
+                    <button class="btn btn-outline" id="email-tickets-btn">
+                        <i class="fas fa-envelope"></i> Envoyer par email
+                    </button>
+                    <button class="btn btn-primary" id="view-reservations-btn">
+                        <i class="fas fa-list"></i> Voir toutes mes réservations
+                    </button>
+                </div>
+                
+                <div class="more-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Information importante</h3>
+                            <p>Veuillez présenter votre billet électronique (imprimé ou sur votre téléphone) à l'entrée du cinéma. Le code QR sera scanné pour valider votre entrée.</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Heure d'arrivée</h3>
+                            <p>Il est recommandé d'arriver au moins 15 minutes avant le début de la séance pour vous installer confortablement.</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Localisation</h3>
+                            <p>CinéHall Centre-Ville<br>123 Avenue du Cinéma<br>75000 Paris<br><a href="#" class="text-link">Voir sur la carte</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="recommendations">
+                <h2>Vous pourriez aussi aimer...</h2>
+                <div class="movies-slider" id="recommended-movies">
+                    <!-- Recommended movies will be added here -->
+                </div>
+            </section>
+        </main>
+        
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CinéHall</h4>
+                    <p>Votre cinéma en ligne pour une expérience exceptionnelle.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Films</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Nous suivre</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CinéHall. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/ticket.js"></script>
+</body>
+</html>

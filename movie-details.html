@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du film - CinéHall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/movies.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <!-- Same header as index.html -->
+            <!-- ... -->
+        </header>
+        
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="movie-title-breadcrumb">Chargement...</span>
+            </div>
+            
+            <div class="movie-details-container">
+                <div class="loading-animation" id="movie-details-loading">
+                    <div class="spinner"></div>
+                    <p>Chargement du film...</p>
+                </div>
+                
+                <div class="movie-details hidden" id="movie-details">
+                    <div class="movie-hero">
+                        <div class="movie-backdrop" id="movie-backdrop"></div>
+                        <div class="movie-poster-container">
+                            <div class="movie-poster" id="movie-poster"></div>
+                            <div class="movie-rating">
+                                <div class="rating-circle">
+                                    <span id="movie-rating">0.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h1 id="movie-title">Titre du film</h1>
+                            <div class="movie-meta">
+                                <span class="movie-year" id="movie-year">2025</span>
+                                <span class="movie-duration" id="movie-duration">0h 00min</span>
+                                <span class="movie-age-rating" id="movie-age">Tout public</span>
+                            </div>
+                            <div class="movie-genres" id="movie-genres">
+                                <!-- Genres will be added here -->
+                            </div>
+                            <p class="movie-description" id="movie-description">
+                                Description du film...
+                            </p>
+                            <div class="movie-actions">
+                                <button class="btn btn-primary" id="book-tickets-btn">
+                                    <i class="fas fa-ticket-alt"></i> Réserver des places
+                                </button>
+                                <button class="btn btn-outline" id="trailer-btn">
+                                    <i class="fas fa-play"></i> Voir la bande-annonce
+                                </button>
+                                <button class="btn btn-icon" id="add-watchlist-btn">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="movie-content">
+                        <div class="movie-section-tabs">
+                            <button class="section-tab active" data-tab="showtimes">Séances</button>
+                            <button class="section-tab" data-tab="cast">Distribution</button>
+                            <button class="section-tab" data-tab="reviews">Avis</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="showtimes-tab">
+                            <h2>Séances disponibles</h2>
+                            <div class="showtimes-filter">
+                                <div class="date-selector">
+                                    <button class="date-nav prev">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <div class="date-scroller" id="date-scroller">
+                                        <!-- Date pills will be added here -->
+                                    </div>
+                                    <button class="date-nav next">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <div class="session-filters">
+                                    <label class="session-filter">
+                                        <input type="checkbox" name="session-type" value="normal" checked>
+                                        <span>Normal</span>
+                                    </label>
+                                    <label class="session-filter">
+                                        <input type="checkbox" name="session-type" value="vip" checked>
+                                        <span>VIP</span>
+                                    </label>
+                                    <label class="session-filter">
+                                        <input type="checkbox" name="session-language" value="vo" checked>
+                                        <span>VO</span>
+                                    </label>
+                                    <label class="session-filter">
+                                        <input type="checkbox" name="session-language" value="vf" checked>
+                                        <span>VF</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="showtimes-list" id="showtimes-list">
+                                <!-- Showtimes will be added here -->
+                                <div class="no-showtimes hidden">
+                                    <i class="fas fa-calendar-times"></i>
+                                    <p>Aucune séance disponible pour ce film.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="cast-tab">
+                            <h2>Distribution et équipe</h2>
+                            <div class="cast-list" id="cast-list">
+                                <!-- Cast will be added here -->
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="reviews-tab">
+                            <h2>Avis des spectateurs</h2>
+                            <div class="reviews-stats">
+                                <div class="average-rating">
+                                    <div class="big-rating">
+                                        <span id="review-average-rating">0.0</span>/5
+                                    </div>
+                                    <div class="rating-stars" id="average-stars">
+                                        <!-- Stars will be added here -->
+                                    </div>
+                                    <div class="total-reviews">
+                                        <span id="review-count">0</span> avis
+                                    </div>
+                                </div>
+                                <div class="rating-distribution">
+                                    <!-- Rating bars will be added here -->
+                                </div>
+                            </div>
+                            
+                            <div class="user-review-form hidden" id="review-form-container">
+                                <h3>Donnez votre avis</h3>
+                                <form id="review-form">
+                                    <div class="rating-input">
+                                        <div class="star-rating">
+                                            <input type="radio" id="star5" name="rating" value="5">
+                                            <label for="star5"></label>
+                                            <input type="radio" id="star4" name="rating" value="4">
+                                            <label for="star4"></label>
+                                            <input type="radio" id="star3" name="rating" value="3">
+                                            <label for="star3"></label>
+                                            <input type="radio" id="star2" name="rating" value="2">
+                                            <label for="star2"></label>
+                                            <input type="radio" id="star1" name="rating" value="1">
+                                            <label for="star1"></label>
+                                        </div>
+                                        <span class="rating-label">Sélectionnez une note</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-title">Titre</label>
+                                        <input type="text" id="review-title" name="title" placeholder="Donnez un titre à votre avis">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-content">Votre avis</label>
+                                        <textarea id="review-content" name="content" rows="4" placeholder="Partagez votre expérience..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Publier mon avis</button>
+                                </form>
+                            </div>
+                            
+                            <div class="reviews-list" id="reviews-list">
+                                <!-- Reviews will be added here -->
+                                <div class="no-reviews hidden">
+                                    <i class="fas fa-comments"></i>
+                                    <p>Soyez le premier à donner votre avis sur ce film!</p>
+                                    <button class="btn btn-primary" id="write-review-btn">Écrire un avis</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="related-movies">
+                <h2>Films similaires</h2>
+                <div class="movies-slider" id="related-movies">
+                    <!-- Related movies will be added here -->
+                </div>
+            </section>
+        </main>
+        
+        <!-- Trailer Modal -->
+        <div class="modal" id="trailer-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="trailer-title">Bande-annonce</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="trailer-container" id="trailer-container"></div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="main-footer">
+            <!-- Same footer as index.html -->
+            <!-- ... -->
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/movies.js"></script>
+</body>
+</html>

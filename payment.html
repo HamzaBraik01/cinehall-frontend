@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - CinéHall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="mini-header">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.svg" alt="CinéHall Logo">
+                <span>CinéHall</span>
+            </a>
+            <div class="reservation-timer" id="reservation-timer">
+                <i class="fas fa-clock"></i>
+                <span>Réservation expire dans: <span id="countdown">15:00</span></span>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fas fa-chevron-right"></i>
+                <a id="movie-link" href="#">Film</a>
+                <i class="fas fa-chevron-right"></i>
+                <a id="seats-link" href="#">Sélection des sièges</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Paiement</span>
+            </div>
+            
+            <div class="payment-container">
+                <div class="booking-steps">
+                    <div class="step completed">
+                        <div class="step-number"><i class="fas fa-check"></i></div>
+                        <div class="step-label">Sélection des sièges</div>
+                    </div>
+                    <div class="step active">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Paiement</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+                
+                <div class="payment-content">
+                    <div class="payment-methods">
+                        <h2>Méthode de paiement</h2>
+                        
+                        <div class="payment-tabs">
+                            <button class="payment-tab active" data-tab="card">
+                                <i class="fas fa-credit-card"></i> Carte bancaire
+                            </button>
+                            <button class="payment-tab" data-tab="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </button>
+                            <button class="payment-tab" data-tab="applepay">
+                                <i class="fab fa-apple-pay"></i> Apple Pay
+                            </button>
+                        </div>
+                        
+                        <div class="payment-form-container active" id="card-tab">
+                            <div class="card-animation">
+                                <div class="card-visual">
+                                    <div class="card-front">
+                                        <div class="card-logo">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </div>
+                                        <div class="card-chip"></div>
+                                        <div class="card-number" id="card-number-display">**** **** **** ****</div>
+                                        <div class="card-details">
+                                            <div class="card-holder">
+                                                <label>Titulaire</label>
+                                                <div id="card-name-display">NOM PRÉNOM</div>
+                                            </div>
+                                            <div class="card-expiry">
+                                                <label>Expire</label>
+                                                <div id="card-expiry-display">MM/AA</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-back">
+                                        <div class="card-strip"></div>
+                                        <div class="card-signature">
+                                            <div class="signature-strip"></div>
+                                            <div class="cvc" id="card-cvc-display">***</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <form id="card-payment-form" class="payment-form">
+                                <div class="form-group">
+                                    <label for="card-number">Numéro de carte</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                        <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                        <div class="card-type" id="card-type"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card-name">Titulaire de la carte</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="card-name" name="card_name" placeholder="Nom complet" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry-date">Date d'expiration</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/AA" maxlength="5" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card-cvc">CVC/CVV</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="text" id="card-cvc" name="card_cvc" placeholder="123" maxlength="3" required>
+                                            <span class="tooltip-trigger" data-tooltip="Le code de sécurité à 3 chiffres au dos de votre carte">
+                                                <i class="fas fa-question-circle"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="save-card" name="save_card">
+                                        <label for="save-card">Sauvegarder ma carte pour mes prochains achats</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="payment-form-container" id="paypal-tab">
+                            <div class="alternative-payment">
+                                <div class="paypal-logo">
+                                    <i class="fab fa-paypal fa-4x"></i>
+                                </div>
+                                <p>Vous allez être redirigé vers PayPal pour finaliser votre paiement en toute sécurité.</p>
+                                <button class="btn btn-paypal">
+                                    <i class="fab fa-paypal"></i> Payer avec PayPal
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-form-container" id="applepay-tab">
+                            <div class="alternative-payment">
+                                <div class="applepay-logo">
+                                    <i class="fab fa-apple-pay fa-4x"></i>
+                                </div>
+                                <p>Payez rapidement et en toute sécurité avec Apple Pay.</p>
+                                <button class="btn btn-applepay">
+                                    <i class="fab fa-apple-pay"></i> Payer avec Apple Pay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-summary">
+                        <h2>Récapitulatif de la commande</h2>
+                        
+                        <div class="summary-movie">
+                            <div class="summary-movie-poster" id="movie-poster"></div>
+                            <div class="summary-movie-info">
+                                <h3 id="movie-title">Titre du film</h3>
+                                <p id="session-date">Date et heure</p>
+                                <p id="session-type">Type de séance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-seats">
+                            <h3>Sièges</h3>
+                            <div class="summary-seats-list" id="selected-seats-list"></div>
+                        </div>
+                        
+                        <div class="summary-prices">
+                            <div class="price-item">
+                                <span>Prix unitaire</span>
+                                <span id="unit-price">0.00 €</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Nombre de sièges</span>
+                                <span id="seat-count">0</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Sous-total</span>
+                                <span id="subtotal">0.00 €</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Frais de service</span>
+                                <span id="service-fee">0.00 €</span>
+                            </div>
+                            <div class="price-divider"></div>
+                            <div class="price-item total">
+                                <span>Total</span>
+                                <span id="total-price">0.00 €</span>
+                            </div>
+                        </div>
+                        
+                        <button id="confirm-payment-btn" class="btn btn-primary btn-block">
+                            Confirmer et payer
+                        </button>
+                        
+                        <div class="payment-security">
+                            <p><i class="fas fa-lock"></i> Paiement sécurisé</p>
+                            <div class="security-logos">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Loading Modal during payment processing -->
+        <div class="modal" id="processing-modal">
+            <div class="modal-content modal-sm">
+                <div class="modal-body">
+                    <div class="processing-animation">
+                        <div class="spinner"></div>
+                        <p>Traitement de votre paiement...</p>
+                        <span>Veuillez ne pas actualiser la page</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="mini-footer">
+            <p>&copy; 2025 CinéHall. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>

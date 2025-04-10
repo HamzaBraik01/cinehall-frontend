@@ -1,0 +1,224 @@
+/* Authentication Page Styling */
+.auth-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .auth-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .auth-tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--lighter-gray);
+  }
+  
+  .auth-tab {
+    flex: 1;
+    background-color: var(--white);
+    border: none;
+    padding: var(--spacing-md);
+    font-weight: 600;
+    color: var(--medium-gray);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .auth-tab.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+  }
+  
+  .auth-tab:hover {
+    color: var(--primary-color);
+  }
+  
+  .tab-content {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+  
+  .tab-content h2 {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+  
+  .forgot-password {
+    color: var(--medium-gray);
+  }
+  
+  .forgot-password:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  
+  .auth-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  
+  .auth-message.error {
+    background-color: rgba(255, 92, 92, 0.1);
+    color: var(--error);
+  }
+  
+  .auth-message.success {
+    background-color: rgba(66, 217, 124, 0.1);
+    color: var(--success);
+  }
+  
+  .password-strength {
+    margin-top: var(--spacing-xs);
+  }
+  
+  .strength-bar {
+    height: 4px;
+    background-color: var(--lighter-gray);
+    border-radius: 2px;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .strength-fill {
+    height: 100%;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s, background-color 0.3s;
+  }
+  
+  .strength-text {
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+  }
+  
+  /* Mini header and footer for auth pages */
+  .mini-header {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mini-header .logo {
+    justify-content: center;
+  }
+  
+  .mini-footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--dark);
+    color: var(--white);
+    font-size: 0.875rem;
+  }
+  
+  /* Social login buttons */
+  .social-login {
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .social-login-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .social-login-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--lighter-gray);
+    z-index: 1;
+  }
+  
+  .social-login-title span {
+    position: relative;
+    background-color: var(--white);
+    padding: 0 var(--spacing-md);
+    color: var(--medium-gray);
+    z-index: 2;
+    font-size: 0.875rem;
+  }
+  
+  .social-login-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+  
+  .social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--light-gray);
+    background-color: var(--white);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+  }
+  
+  .social-btn:hover {
+    background-color: var(--lighter-gray);
+  }
+  
+  .social-btn i {
+    font-size: 1.25rem;
+  }
+  
+  .btn-google i {
+    color: #DB4437;
+  }
+  
+  .btn-facebook i {
+    color: #4267B2;
+  }
+  
+  .btn-apple i {
+    color: #000000;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .auth-container {
+      padding: var(--spacing-sm);
+      margin: var(--spacing-md) auto;
+    }
+    
+    .tab-content {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .social-login-buttons {
+      flex-direction: column;
+    }
+  }
